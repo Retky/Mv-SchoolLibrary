@@ -8,4 +8,10 @@ class Person
     @name = name
     @age = age
   end
+
+  private
+
+  def of_age?
+    @age >= 18
+  end
 end
