@@ -4,13 +4,20 @@
 ### Prerequisites
 If you haven't yet, you should first [set up Git.](https://docs.github.com/en/get-started/quickstart/set-up-git) Don't forget to [set up authentication to GitHub.com from Git](https://docs.github.com/en/get-started/quickstart/set-up-git#next-steps-authenticating-with-github-from-git) as well.
 
-## Getting Started
+### Usage
+- Clone the repository
+  - Above the list of files, click **↓Code**
+  - Clone with HTTPS
+  - Open Terminal
+  - Change the current working directory to the location where you want the cloned directory
+  - Type git clone, and then paste the URL you copied earlier
+  - Press Enter. Your local clone will be created
 
-This repository includes files with plain SQL that can be used to recreate a database:
+**OR**
 
-- Use [schema.sql](./schema.sql) to create all tables.
-- Use [data.sql](./data.sql) to populate tables with sample data.
-- Check [queries.sql](./queries.sql) for examples of queries that can be run on a newly created database. **Important note: this file might include queries that make changes in the database (e.g., remove records). Use them responsibly!**
+- Fork the repository
+  - In the top-right corner of the page, click Fork
+  - Work in the forked repository
 
 
 ## Author
