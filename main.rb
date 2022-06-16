@@ -1,5 +1,3 @@
-#!/usr/bin/env ruby
-
 require_relative './app'
 
 def main
@@ -8,7 +6,7 @@ def main
   puts "Welcome to School Library App! \n\n"
   loop do
     menu
-    input = checker4
+    input = checker
     case input
     when 1 then new_app.list_books
     when 2 then new_app.list_persons
