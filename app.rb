@@ -49,6 +49,25 @@ class App
 
   def create_person
     print 'Do you want to create a Student (1) or a Teacher (2)? [Input the number]: '
+    person_type = gets.chomp
+    print 'Age: '
+    age = gets.chomp
+    print 'Name: '
+    name = gets.chomp
+    case person_type
+    when '1'
+      print 'Has parent permission? [Y/N]: '
+      permission = gets[0] == 'Y'
+      @persons << Student.new(age, 'unassigned', name, parent_permission: permission)
+      puts ['Person created successfully', '']
+      menu
+    when '2'
+      print 'Specialization: '
+      specialization = gets.chomp
+      @persons << Teacher.new(age, specialization, name)
+      puts ['Person created successfully', '']
+      menu
+    end
   end
 
   def create_book
