@@ -38,12 +38,14 @@ class App
   end
 
   def list_books
-    @persons.each { |book| puts "Title: \"#{book.title}\", Author: #{book.author}" }
+    @books.each { |book| puts "Title: \"#{book.title}\", Author: #{book.author}" }
+    puts ''
     menu
   end
 
   def list_persons
     @persons.each { |person| puts "[#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}" }
+    puts ''
     menu
   end
 
@@ -76,13 +78,29 @@ class App
     print 'Author: '
     author = gets.chomp
     @books << Book.new(title, author)
+    menu
   end
 
   def create_rental
-    print 'rental'
+    puts 'Select a Book from the following list by number'
+    @books.each_with_index { |book, index| puts "#{index}) Title: \"#{book.title}\", Author: #{book.author}" }
+    book_index = gets.chomp.to_i
+    puts 'Select a Person from the following list by number (not id)'
+    @persons.each_with_index { |person, index| puts " #{index}) [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}" } # rubocop:disable Layout/LineLength
+    person_index = gets.chomp.to_i
+    print 'Date: '
+    date = gets.chomp
+    @rentals << Rental.new(date, @persons[person_index], @books[book_index])
+    puts ['Rental created successfully', '']
+    menu
   end
 
   def list_rentals
-    print 'rentals'
+    print 'ID of person: '
+    person_id = gets.chomp.to_i
+    puts 'Rentals: '
+    @rentals.each { |rent| puts "#{rent.class} #{rent.date} | Book: \"#{rent.book.title}\" rented by #{rent.person.name}" if rent.person.id == person_id } # rubocop:disable Layout/LineLength
+    puts ''
+    menu
   end
 end
