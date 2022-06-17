@@ -34,7 +34,7 @@ def menu
 end
 
 def checker
-  input = gets.chomp.to_i
+  input = gets.chomp
   while input > 7 || input < 1
     puts 'Select a valid option by entering a number:'
     input = gets.chomp
